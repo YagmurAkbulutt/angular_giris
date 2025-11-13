@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { RouterOutlet, RouterLink } from '@angular/router';
+import { enviroment } from '../enviroment/enviroment.dev';
 
 @Component({
   selector: 'app-root',
@@ -26,7 +27,7 @@ export class AppComponent {
   ){}
 
   getList(){
-    this._http.get('https://jsonplaceholder.typicode.com/todos').subscribe((res:any) => {
+    this._http.get(enviroment.api + "todos").subscribe((res:any) => {
       this.todos = res;
     })
   }

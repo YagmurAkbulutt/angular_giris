@@ -1,0 +1,21 @@
+<div>
+  <flexi-grid [data]="todos()" 
+  language="tr" 
+  themeClass="light" 
+  [showIndex]="true"
+  indexWidth="70px"
+  [sortable]="true"
+
+  >
+    <flexi-grid-column field="id" title="Id" [visible]="false"/>
+    <flexi-grid-column field="id" title="Custom Column" [filterable]="false" [resizable]="false">
+      <ng-template flexiGridCellTemplate let-item>
+        <span>{{item.id}} - {{item.completed ? "Completed" : "Not Completed"}} </span>
+      </ng-template>
+    </flexi-grid-column>
+    <flexi-grid-column field="title" title="Todo Title" width="100px" [hideOverflow]="false"/>
+    <flexi-grid-column field="Completed" title="Completed"/>
+    <flexi-grid-column field="userId" title="User Id" filterType="number" [fraction]="0" />
+
+  </flexi-grid>
+</div>
